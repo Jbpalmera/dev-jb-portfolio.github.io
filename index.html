@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Jb PortFolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero/Header Section */
+        header {
+            height: 100vh;
+            background: url("https://drive.google.com/thumbnail?id=1ctUsccf8C8lpO6T9L36tQ3xKJQQmJhX5&sz=w1920-h1080") center/cover fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: white;
+            padding: 0 20px;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 3px solid #38bdf8;
+            white-space: nowrap;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #38bdf8 }
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .header-content a {
+            padding: 10px 20px;
+            background: #38bdf8;
+            color: #111;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .header-content a:hover {
+            background: #0ea5e9;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #38bdf8;
+            display: block;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* Skills */
+        .skills-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+        }
+
+        .skill img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill img:hover {
+            transform: scale(1.1);
+        }
+
+        .skill-level {
+            width: 100%;
+            background: #334155;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 8px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #38bdf8;
+            width: 0;
+            animation: loadSkill 2s forwards;
+        }
+
+        @keyframes loadSkill {
+            from { width: 0 }
+            to { width: var(--level) }
+        }
+
+        /* Contact */
+         .contact-section {
+            width: 100%;
+            max-width: 1200px;
+            padding: 60px 20px;
+            
+            border-radius: 20px;
+        
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            display: block;
+            margin: 15px auto 30px;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            background: rgba(56, 189, 248, 0.1);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #38bdf8, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #38bdf8;
+        }
+
+        .info-content p, .info-content a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-content a:hover {
+            color: #38bdf8;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #38bdf8;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .social-link:hover {
+            background: #38bdf8;
+            color: #111;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .contact-form {
+            background: rgba(30, 41, 59, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .map-container {
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            height: 250px;
+            background: rgba(30, 41, 59, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .map-placeholder {
+            font-size: 3rem;
+            color: #38bdf8;
+        }
+
+        .map-text {
+            color: #cbd5e1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .info-item {
+                padding: 15px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .info-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f172a;
+            color: #94a3b8;
+        }
+
+        /* Responsive Projects */
+        
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .projects-filter-btn {
+            padding: 6px 12px;
+            background: rgba(56, 189, 248, 0.2);
+            color: #fff;
+            border: 1px solid #38bdf8;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .projects-filter-btn:hover,
+        .projects-filter-btn.active {
+            background: #38bdf8;
+            color: #111;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 15px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        .project-description {
+            color: #ccc;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .tech-tag {
+            padding: 3px 8px;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border-radius: 10px;
+            font-size: 0.7rem;
+        }
+
+        .project-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+          .project-features {
+            margin-bottom: 15px;
+        }
+
+        .project-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .project-feature i {
+            margin-right: 8px;
+            color: #38bdf8;
+            font-size: 0.7rem;
+        }
+        .project-testimonial {
+            background: rgba(15, 23, 42, 0.7);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            position: relative;
+        }
+
+        .project-testimonial::before {
+            content: "";
+            font-size: 2rem;
+            color: #38bdf8;
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            opacity: 0.3;
+        }
+
+        .status-live {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .status-development {
+            background: rgba(234, 179, 8, 0.2);
+            color: #ea3d08;
+        }
+
+        .status-completed {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        /* Enhanced Awards & Certificates Section */
+        .awards-section, .education-section, .experience-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            display: block;
+            margin: 12px auto 25px;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            font-size: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: rgba(56, 189, 248, 0.1);
+            color: #e2e8f0;
+            border: 1px solid #38bdf8;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            background: rgba(56, 189, 248, 0.2);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            color: #111;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .award-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #38bdf8, #3b82f6);
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #38bdf8;
+            align-self: flex-start;
+            background: rgba(56, 189, 248, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .award-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #fff;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .award-issuer {
+            color: #38bdf8;
+            font-weight: 500;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .award-description {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .award-date {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .badge-award {
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            color: #fff;
+        }
+
+        .badge-certificate {
+            background: linear-gradient(90deg, #10b981, #059669);
+            color: #fff;
+        }
+
+        /* Enhanced Education & Experience Sections - Responsive Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #38bdf8, #3b82f6);
+            border-radius: 8px;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111;
+            font-size: 1rem;
+            left: 0;
+            top: 0;
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+        }
+
+        .timeline-content {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .timeline-date {
+            color: #38bdf8;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .company {
+            color: #38bdf8;
+            font-weight: 500;
+            margin-bottom: 12px;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .timeline-desc {
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .responsibilities, .timeline-honors, .achievements {
+            margin-top: 15px;
+        }
+
+        .responsibilities h4, .timeline-honors h4, .achievements h4 {
+            color: #38bdf8;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .responsibilities ul, .timeline-honors ul, .achievements ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+
+        .responsibilities li, .timeline-honors li, .achievements li {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.4;
+        }
+
+        .responsibilities li::before {
+            content: '▹';
+            color: #38bdf8;
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline-honors li::before, .achievements li::before {
+            content: '★';
+            color: #38bdf8;
+            position: absolute;
+            left: 0;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .download-resume {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            color: #111;
+            font-weight: 600;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .resume-btn i {
+            margin-right: 8px;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #38bdf8;
+            color: #111;
+            border: none;
+            outline: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        #backToTop:hover {
+            background: #0ea5e9;
+            transform: scale(1.1);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 15px;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+            
+            nav ul li a {
+                font-size: 0.8rem;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+            }
+            
+            .header-content a {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 50px 15px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .skill {
+                width: 85px;
+            }
+            
+            .skill img {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .projects-grid, .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image {
+                height: 160px;
+            }
+            
+            .timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-item {
+                padding-left: 40px;
+            }
+            
+            .timeline-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+            
+            .timeline-content {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            nav ul {
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .filter-container, .projects-filter {
+                gap: 5px;
+            }
+            
+            .filter-btn, .projects-filter-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .award-card, .timeline-content {
+                padding: 15px;
+            }
+            
+            .award-title, .timeline-title {
+                font-size: 1.1rem;
+            }
+            
+            .resume-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Dev JB</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="header-content">
+            <h1>Hello,<br><span class="typewriter">I'm Jb Palmera Oyanib</span> </h1>
+            <p> Full Stack Web Developer | Designer | Freelancer</p>
+            <a href="#projects">View My Work</a>
+            <a href="#contact">Hire Me!</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm <strong>Jb Oyanib</strong>, a passionate web developer dedicated to helping businesses and
+            individuals build <strong>modern, professional, and user-friendly websites</strong>.
+            I specialize in creating <strong>responsive designs</strong>, smooth <strong>animations</strong>, and
+            seamless <strong>user experiences</strong> that don't just look good they help you stand out online.
+        </p>
+        <p>
+            Whether you need a <strong>portfolio website</strong>, an <strong>e-commerce store</strong>,
+            or a <strong>custom web application</strong>, I can bring your ideas to life with clean code and
+            reliable support. My goal is to not only deliver a website but to provide a digital solution
+            that helps you <strong>attract more clients and grow your brand</strong>.
+        </p>
+        <p>
+            Let's work together to turn your vision into reality. 🚀
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+        <h2>Skills & Technologies</h2>
+        <div style="text-align:center; margin-bottom:30px;">
+            <button class="filter-btn" onclick="filterSkills('all')">Show All</button>
+            <button class="filter-btn" onclick="filterSkills('frontend')">Frontend</button>
+            <button class="filter-btn" onclick="filterSkills('backend')">Backend</button>
+            <button class="filter-btn" onclick="filterSkills('frameworks')">Frameworks</button>
+            <button class="filter-btn" onclick="filterSkills('api')">API & Integration</button>
+            <button class="filter-btn" onclick="filterSkills('iot')">IoT & Robotics</button>
+            <button class="filter-btn" onclick="filterSkills('tools')">Tools</button>
+        </div>
+        <div class="skills-logos">
+           
+            <!-- FRONTEND -->
+            <div class="skill frontend">
+                <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="HTML5" />
+                <p>HTML5</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:90%"></div>
+                </div>
+            </div>
+            <div class="skill frontend">
+                <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="CSS3" />
+                <p>CSS3</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:85%"></div>
+                </div>
+            </div>
+            <div class="skill frontend">
+                <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" alt="Bootstrap" />
+                <p>Bootstrap</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:80%"></div>
+                </div>
+            </div>
+            <div class="skill frontend">
+                <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" />
+                <p>React</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:75%"></div>
+                </div>
+            </div>
+            <div class="skill frontend">
+                <img src="https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" alt="Tailwind" />
+                <p>TailwindCSS</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:70%"></div>
+                </div>
+            </div>
+            <!-- JavaScript -->
+            <div class="skill frontend">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript" />
+                <p>JavaScript</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:90%"></div>
+                </div>
+            </div>
+
+
+            <!-- BACKEND -->
+            <div class="skill backend">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+                <p>PHP</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:85%"></div>
+                </div>
+            </div>
+            <div class="skill backend">
+                <img src="https://cdn.worldvectorlogo.com/logos/java-4.svg" alt="Java" />
+                <p>Java</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:75%"></div>
+                </div>
+            </div>
+            <div class="skill backend">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                <p>MySQL</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:85%"></div>
+                </div>
+            </div>
+
+            <div class="skill backend">
+                <img src="https://cdn.worldvectorlogo.com/logos/postgresql.svg" alt="PostgreSQL" />
+                <p>PostgreSQL</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:75%"></div>
+                </div>
+            </div>
+
+            <!-- WEB FRAMEWORKS -->
+            <div class="skill frameworks">
+                <img src="https://cdn.worldvectorlogo.com/logos/laravel-2.svg" alt="Laravel" />
+                <p>Laravel</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:80%"></div>
+                </div>
+            </div>
+            <div class="skill frameworks">
+                <img src="https://cdn.worldvectorlogo.com/logos/lumen-1.svg" alt="Lumen" />
+                <p>Lumen</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:70%"></div>
+                </div>
+            </div>
+            <div class="skill frameworks">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg"
+                    alt="CodeIgniter 4" />
+                <p>CodeIgniter4</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:70%"></div>
+                </div>
+            </div>
+
+
+            <!-- Example API & Integration Skills -->
+            <div class="skill api">
+                <img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman" />
+                <p>Postman</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:85%"></div>
+                </div>
+            </div>
+            <div class="skill api">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAhv4IV62tasPEUYS_ks7tU4xHB8dX8LOgvA&s"
+                    alt="REST API" />
+
+
+                <p>REST API</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:80%"></div>
+                </div>
+            </div>
+
+            <div class="skill iot">
+                <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="Arduino" />
+                <p>Arduino</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:75%"></div>
+                </div>
+            </div>
+
+            <div class="skill iot">
+                <img src="https://cdn-icons-png.flaticon.com/512/2867/2867725.png" alt="Robotics" />
+                <p>Robotics</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:70%"></div>
+                </div>
+            </div>
+            <!-- TOOLS -->
+            <div class="skill tools">
+                <img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="VS Code" />
+                <p>VS Code</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:95%"></div>
+                </div>
+            </div>
+
+            <div class="skill tools">
+                <img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg" alt="Git" />
+                <p>Git</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:85%"></div>
+                </div>
+            </div>
+
+            <div class="skill tools">
+                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
+                <p>GitHub</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:85%"></div>
+                </div>
+            </div>
+
+            <div class="skill tools">
+                <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="Node.js" />
+                <p>Node.js</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:80%"></div>
+                </div>
+            </div>
+
+            <div class="skill tools">
+                <img src="https://cdn.worldvectorlogo.com/logos/npm-square-red-1.svg" alt="npm" />
+                <p>npm</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:75%"></div>
+                </div>
+            </div>
+
+            <div class="skill tools">
+                <img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman" />
+                <p>Postman</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:80%"></div>
+                </div>
+            </div>
+
+
+
+            <div class="skill tools">
+                <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB" />
+                <p>MongoDB</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:75%"></div>
+                </div>
+            </div>
+
+
+            <!-- Figma -->
+            <div class="skill tools">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" />
+                <p>Figma</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:85%"></div>
+                </div>
+            </div>
+
+            <!-- Photoshop -->
+            <div class="skill tools">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg"
+                    alt="Photoshop" />
+                <p>Photoshop</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:80%"></div>
+                </div>
+            </div>
+
+            <!-- Canva -->
+            <div class="skill tools">
+                <img src="https://www.pngall.com/wp-content/uploads/13/Canva-Logo-PNG.png" alt="Canva" />
+                <p>Canva</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:80%"></div>
+                </div>
+            </div>
+
+
+
+            <div class="skill tools">
+                <img src="https://cdn.worldvectorlogo.com/logos/google-chrome.svg" alt="Chrome DevTools" />
+                <p> DevTools</p>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--level:90%"></div>
+                </div>
+            </div>
+
+       
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="projects-filter">
+            <button class="projects-filter-btn active" data-filter="all">All Projects</button>
+            <button class="projects-filter-btn" data-filter="web">Web Development</button>
+            <button class="projects-filter-btn" data-filter="iot">IoT & Embedded</button>
+            <button class="projects-filter-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="projects-filter-btn" data-filter="current">Current Projects</button>
+        </div>
+        <div class="projects-grid">
+             <!-- Project 1 -->
+            <div class="project-card" data-category="web,current">
+                <span class="project-status status-development">Company Project In Development</span>
+                <div class="project-image">
+                    <img src="https://drive.google.com/thumbnail?id=1bRp04gU6MwhvhlqTGyyws67TIiWuBWqM&sz=w1920-h1080" alt="BRM System">
+                    <div class="project-overlay">
+                       
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Business Resource Manager (BRM)</h3>
+                    <p class="project-description">A comprehensive business resource manager system built with
+                        Laravel to streamline client interactions and business processes.</p>
+
+                    <div class="project-features">
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Client Management Module</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Automated Reporting System
+                        </div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> All Business Related Transaction</div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+
+                    <div class="project-testimonial">
+                        "The BRM system has transformed how we manage client relationships and track business
+                        opportunities."
+                        <div class="client-info">
+                            <span class="client-name">- ASCII Solutions</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-category="web,current">
+                <span class="project-status status-development">Company Project In Development</span>
+                <div class="project-image">
+                    <img src="https://drive.google.com/thumbnail?id=1poTXAxf7IQ_UxTC5cFuf4qGix8ILLjQV&sz=w1920-h1080
+" alt="HRIS System">
+                    <div class="project-overlay">
+                       
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Human Resource Information System (HRIS)</h3>
+                    <p class="project-description">Microservices-based HR system with React.js frontend and Laravel
+                        Lumen backend for comprehensive human resource management.</p>
+
+                    <div class="project-features">
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Employee Management</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Payroll Processing</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Advanced Reporting Dashboard
+                        </div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Lumen</span>
+                        <span class="tech-tag">Microservices</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+
+                    <div class="project-testimonial">
+                        "The reporting module developed by JB has provided us with invaluable insights into our
+                        workforce analytics."
+                        <div class="client-info">
+                            <span class="client-name">- HR Department</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              <!-- Project 2 -->
+            <div class="project-card" data-category="web,current">
+                <span class="project-status status-development">Freelance In Development</span>
+                <div class="project-image">
+                    <img src="https://gridinsoft.com/img/scr/site/ognimohub-com.jpeg" alt="Ognimohub">
+                    <div class="project-overlay">
+                       
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Ognimohub</h3>
+                    <p class="project-description">Ognimohub is an all-in-one cross-platform Mobile 
+                        Financial Services (MFS) solution designed for individuals, agents, and merchants. 
+                        It enables secure digital transactions,
+                         global payments, money transfers, and virtual card management.</p>
+
+                    <div class="project-features">
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> E-wallet System</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> International Transactions</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Safe and Secure Payments
+                        </div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">flutter</span>
+                        <span class="tech-tag">Microservices</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+
+                    <div class="project-testimonial">
+                        "Ognimohub has revolutionized my financial experience, making transactions effortless and hassle-free."
+                        <div class="client-info">
+                            <span class="client-name">-Ognimohub User</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card" data-category="web,ecommerce">
+                <span class="project-status status-live">Thesis Project</span>
+                <div class="project-image">
+                    <img src="https://drive.google.com/thumbnail?id=1sKLgN3O6pDWDuAw9ajqvkPyec9GMtRgR&sz=w1920-h1080"
+                        alt="Marj Laynesa Catering">
+                    <div class="project-overlay">
+                       
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Marj Laynesa Catering Booking System</h3>
+                    <p class="project-description">A complete catering service booking platform with integrated payment
+                        processing for a growing food business.</p>
+
+                    <div class="project-features">
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Online Booking System</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Multi-payment Gateway
+                            Integration</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Menu Management</div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Payment API</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+
+                    <div class="project-testimonial">
+                        "Our online bookings increased by 40% after launching the new system. The payment integration
+                        makes everything seamless."
+                        <div class="client-info">
+                            <img src="https://via.placeholder.com/40/38bdf8/ffffff?text=ML" alt="Client"
+                                class="client-avatar">
+                            <span class="client-name">- Marj Laynesa Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" data-category="web,ecommerce">
+                <span class="project-status status-live">Thesis Project</span>
+                <div class="project-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBee3XsnCW5-cEVz5hHknr7wEiu-EvbwddA&s" alt="ZZM Trading">
+                    <div class="project-overlay">
+                       
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">ZZM Trading Online Ordering System</h3>
+                    <p class="project-description">E-commerce platform for ZZM Trading with complete product management
+                        and multiple payment options.</p>
+
+                    <div class="project-features">
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Product Catalog</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Shopping Cart</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Order Tracking</div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">GCash API</span>
+                        <span class="tech-tag">PayMaya API</span>
+                    </div>
+
+                    <div class="project-testimonial">
+                        "The seamless ordering process and multiple payment options have significantly improved our
+                        customer experience."
+                        <div class="client-info">
+                            <span class="client-name">- ZZM Trading Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card" data-category="iot">
+                <span class="project-status status-completed">Completed</span>
+                <div class="project-image">
+                    <img src="https://drive.google.com/thumbnail?id=1t2cMhcukLFXcQZ-6OpTjZTXgazv--iAz&sz=w1920-h1080" alt="Lab Guard Pro">
+                    
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Lab Guard Pro IoT Security System</h3>
+                    <p class="project-description">An award-winning IoT laboratory security system with Arduino sensors
+                        and web application integration.</p>
+
+                    <div class="project-features">
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Real-time Monitoring</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Alert System</div>
+                        <div class="project-feature"><i class="fas fa-check-circle"></i> Remote Access</div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Web Integration</span>
+                        <span class="tech-tag">Sensor Networks</span>
+                    </div>
+
+                    <div class="project-testimonial">
+                        "This innovative solution won multiple awards for its practical application of IoT technology in
+                        security."
+                        <div class="client-info">
+                            <span class="client-name">- Competition Judges</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards" class="awards-section">
+        <h2 class="section-title">Awards & Certifications</h2>
+        <p class="section-subtitle">Recognitions and credentials that demonstrate my expertise and commitment to professional development</p>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterAwards('all')">All Achievements</button>
+            <button class="filter-btn" onclick="filterAwards('award')">Awards</button>
+            <button class="filter-btn" onclick="filterAwards('certificate')">Certifications</button>
+        </div>
+        <div class="awards-grid">
+          <!-- Awards -->
+            <div class="award-card" data-category="award">
+                <span class="badge badge-award">Award</span>
+                <div class="award-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3 class="award-title">BEST PROGRAMMER OF THE YEAR 2024</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> Special Recognition Award
+                </div>
+                <p class="award-description">Acknowledged for exceptional programming skills, innovative problem-solving, and outstanding contributions to software development projects throughout the year.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Awarded: May 2024
+                </div>
+            </div>
+            
+            <div class="award-card" data-category="award">
+                <span class="badge badge-award">Award</span>
+                <div class="award-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3 class="award-title">IoT / Embedded System CHAMPION</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> Technology Innovation Competition
+                </div>
+                <p class="award-description">Recognized for developing the innovative Lab Guard Pro system, showcasing excellence in IoT implementation and embedded systems design.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Awarded: March 2024
+                </div>
+            </div>
+            
+            <div class="award-card" data-category="award">
+                <span class="badge badge-award">Award</span>
+                <div class="award-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="award-title">Best in Web Application Development</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> Tech Innovation Awards
+                </div>
+                <p class="award-description">Awarded for excellence in designing and implementing the web application component of the Lab Guard Pro system with exceptional UI/UX and functionality.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Awarded: February 2024
+                </div>
+            </div>
+            
+            <div class="award-card" data-category="award">
+                <span class="badge badge-award">Award</span>
+                <div class="award-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3 class="award-title">Best in IOT Hardware Category</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> IoT Innovation Challenge
+                </div>
+                <p class="award-description">Recognized for outstanding hardware design and implementation in the Lab Guard Pro IoT security system with innovative sensor integration.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Awarded: February 2024
+                </div>
+            </div>
+            
+            <!-- Certificates -->
+            <div class="award-card" data-category="certificate">
+                <span class="badge badge-certificate">Certification</span>
+                <div class="award-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="award-title">NCII COMPUTER SYSTEM SERVICING</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> TESDA
+                </div>
+                <p class="award-description">Official certification in computer system servicing demonstrating competence in installing, configuring, and maintaining computer systems and networks.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Issued: January 2023
+                </div>
+            </div>
+            
+            <div class="award-card" data-category="certificate">
+                <span class="badge badge-certificate">Certification</span>
+                <div class="award-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="award-title">LEVEL 2 COMPUTER PROGRAMMER ASSISTANT</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> Royal Institute of Singapore
+                </div>
+                <p class="award-description">International certification recognizing proficiency in programming fundamentals, algorithm design, and software development methodologies.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Issued: November 2022
+                </div>
+            </div>
+            
+            <div class="award-card" data-category="certificate">
+                <span class="badge badge-certificate">Certification</span>
+                <div class="award-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="award-title">MEMBER OF ROYAL INSTITUTE OF INFORMATION TECHNOLOGY</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> Royal Institute of Singapore
+                </div>
+                <p class="award-description">Professional membership recognizing expertise and commitment to the field of information technology and software development.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Issued: October 2022
+                </div>
+            </div>
+            
+            <div class="award-card" data-category="certificate">
+                <span class="badge badge-certificate">Certification</span>
+                <div class="award-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="award-title">Canva Beyond Certificate</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> Department of Information Communication Technology (DICT)
+                </div>
+                <p class="award-description">Certification in advanced graphic design and visual communication using Canva, demonstrating proficiency in creating professional marketing materials.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Issued: August 2022
+                </div>
+            </div>
+            
+            <div class="award-card" data-category="certificate">
+                <span class="badge badge-certificate">Certification</span>
+                <div class="award-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="award-title">RADIO ACCESS NETWORK</h3>
+                <div class="award-issuer">
+                    <i class="fas fa-building"></i> USAID Webinar Series
+                </div>
+                <p class="award-description">Certification in radio access network technologies, covering fundamentals of wireless communication systems and network infrastructure.</p>
+                <div class="award-date">
+                    <i class="far fa-calendar-alt"></i> Issued: June 2022
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="education-section">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">My academic journey and professional development that form the foundation of my expertise</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-date">2020 - 2024</div>
+                    <h3 class="timeline-title">Bachelor of Science in Computer Science</h3>
+                    <p class="timeline-desc">Immaculada Concepcion College, Balayan, Batangas</p>
+                    <div class="timeline-honors">
+                        <h4><i class="fas fa-trophy"></i> Academic Achievements</h4>
+                        <ul>
+                            <li>Graduated with Special Awards in Programming</li>
+                            <li>Dean's Lister (3 Semesters)</li>
+                            <li>Best Thesis Award - Lab Guard Pro System</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-date">2016 - 2018</div>
+                    <h3 class="timeline-title">Senior High School - Tech-Voc ICT Strand</h3>
+                    <p class="timeline-desc">Immaculada Concepcion College, Balayan, Batangas</p>
+                    <div class="timeline-honors">
+                        <h4><i class="fas fa-trophy"></i> Key Focus Areas</h4>
+                        <ul>
+                            <li>Computer Programming Fundamentals</li>
+                            <li>Web Development Basics</li>
+                            <li>Computer System Servicing</li>
+                            <li>Network Administration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="timeline-date">2023</div>
+                    <h3 class="timeline-title">Advanced Web Development Bootcamp</h3>
+                    <p class="timeline-desc">Online Certification Program</p>
+                    <div class="timeline-honors">
+                        <h4><i class="fas fa-trophy"></i> Skills Acquired</h4>
+                        <ul>
+                            <li>Advanced JavaScript and React.js</li>
+                            <li>API Development with Laravel Lumen</li>
+                            <li>Database Optimization Techniques</li>
+                            <li>Microservices Architecture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience-section">
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">My professional journey and the valuable experiences that have shaped my expertise in web development</p>
+        <div class="timeline">
+          <!-- Experience 1 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i> 2024 - Current
+                    </div>
+                    <h3 class="timeline-title">Full Stack Web Developer</h3>
+                    <span class="company">ASCII Solutions</span>
+                    <p class="timeline-desc">Developing and maintaining professional business websites and web applications with a focus on scalability and user experience.</p>
+                    
+                    <div class="responsibilities">
+                        <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
+                        <ul>
+                            <li>Design and implement responsive web applications using modern frameworks</li>
+                            <li>Refactor and replicate features from legacy systems to updated platforms</li>
+                            <li>Collaborate with cross-functional teams to define, design, and ship new features</li>
+                            <li>Optimize applications for maximum speed and scalability</li>
+                            <li>Implement security and data protection protocols</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="technologies">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">RESTful APIs</span>
+                    </div>
+                    
+                    <div class="achievements">
+                        <h4><i class="fas fa-trophy"></i> Key Achievements</h4>
+                        <ul>
+                            <li>Successfully migrated legacy Business Relation Management system to modern Laravel framework</li>
+                            <li>Improved system performance by 40% through code optimization and database indexing</li>
+                            <li>Implemented automated testing reducing bugs in production by 60%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                     <!-- Experience 3 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i> Current
+                    </div>
+                    <h3 class="timeline-title">Part Time IT Instructor</h3>
+                    <span class="company">Bestlink College of the Philippines</span>
+                    <p class="timeline-desc">Providing Web Development and support to students and faculty members at Bestlink College of the Philippines</p>
+                    
+                    <div class="responsibilities">
+                        <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
+                        <ul>
+                            <li>Provided technical support to students and faculty members</li>
+                            <li>Teach web development concepts and best practices</li>
+                            <li>Train Students on web development tools and frameworks</li>
+                            <li>Design and develop responsive and user-friendly websites</li>
+                            <li>Introduce new technologies and tools to students</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="technologies">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                    </div>
+                    
+                    <div class="achievements">
+                        <h4><i class="fas fa-trophy"></i> Key Achievements</h4>
+                        <ul>
+                            <li>My students improved their web development skills by 50%</li>
+                            <li>Students able to create responsive and user-friendly websites</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+
+            
+            <!-- Experience 2 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i> 2024
+                    </div>
+                    <h3 class="timeline-title">Web Developer & IoT Integration Specialist</h3>
+                    <span class="company">NTEK SYSTEM</span>
+                    <p class="timeline-desc">Developed web applications with IoT integration for innovative library management systems.</p>
+                    
+                    <div class="responsibilities">
+                        <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
+                        <ul>
+                            <li>Integrated IoT-based library system with web application interface</li>
+                            <li>Developed real-time data visualization dashboards for system monitoring</li>
+                            <li>Created API endpoints for communication between hardware and software components</li>
+                            <li>Implemented user authentication and authorization systems</li>
+                            <li>Provided technical documentation and user training</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="technologies">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">API Integration</span>
+                        <span class="tech-tag">WebSockets</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                    
+                    <div class="achievements">
+                        <h4><i class="fas fa-trophy"></i> Key Achievements</h4>
+                        <ul>
+                            <li>Successfully integrated IoT sensors with web application reducing manual processes by 75%</li>
+                            <li>Developed a real-time book tracking system that improved inventory accuracy by 90%</li>
+                            <li>Created responsive dashboard that allowed staff to monitor system status from any device</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience 3 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i> 2022 - Current
+                    </div>
+                    <h3 class="timeline-title">Freelance Full Stack Developer</h3>
+                    <span class="company">Global Clients</span>
+                    <p class="timeline-desc">Delivered high-quality web solutions to clients worldwide across various industries.</p>
+                    
+                    <div class="responsibilities">
+                        <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
+                        <ul>
+                            <li>Consulted with clients to determine project requirements and scope</li>
+                            <li>Designed and developed custom web applications based on client needs</li>
+                            <li>Implemented e-commerce solutions with payment gateway integration</li>
+                            <li>Provided ongoing maintenance and support for deployed applications</li>
+                            <li>Optimized websites for search engines and performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="technologies">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Payment APIs</span>
+                        <span class="tech-tag">MySQL</span>
+
+                    </div>
+                    
+                    <div class="achievements">
+                        <h4><i class="fas fa-trophy"></i> Key Achievements</h4>
+                        <ul>
+                            <li>Developed 15+ websites for clients across Philippines and 1 different country</li>
+                            <li>Increased client conversion rates by an average of 35% through UX improvements</li>
+                            <li>Maintained 100% client satisfaction with all delivered projects</li>
+                            <li>Built Marj Laynesa Catering and ZZM Trading systems from concept to deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="download-resume">
+            <a href="#" class="resume-btn">
+                <i class="fas fa-download"></i> Download Full Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have a project in mind or want to discuss opportunities? I'd love to hear from you!</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <a href="tel:+639513324573">+63 951 332 4573</a>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <a href="mailto:devJboyanib@gmail.com">devJboyanib@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Location</h3>
+                        <p>Caloocan City, Metro Manila, Philippines</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Social Media</h3>
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@dev_jb_oyanib" target="_blank" class="social-link">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.facebook.com/JBOYANIB" target="_blank" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/jboyanib_15/?hl=en" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://github.com/Jbpalmera" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jay-boy-oyanib-09b304320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+        
+        <div class="map-container">
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <p class="map-text">Based in Caloocan City, Metro Manila - Available for local and remote opportunities</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Dev JB. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Get the button
+        const backToTopBtn = document.getElementById("backToTop");
+
+        // Show button when scrolling down 200px
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        // Scroll to top when clicked
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Set current year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Skills filtering
+        function filterSkills(category) {
+            let skills = document.querySelectorAll('.skill');
+            if (category === 'all') {
+                skills.forEach(skill => skill.style.display = 'flex');
+            } else {
+                skills.forEach(skill => {
+                    if (skill.classList.contains(category)) {
+                        skill.style.display = 'flex';
+                    } else {
+                        skill.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Awards filtering functionality
+        function filterAwards(category) {
+            const items = document.querySelectorAll('.award-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button states
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.projects-filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const categories = card.getAttribute('data-category').split(',');
+                            if (categories.includes(filterValue)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
