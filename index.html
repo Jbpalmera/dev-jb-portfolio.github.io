@@ -507,6 +507,7 @@
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; /* Important for absolute positioning of status badge */
         }
 
         .project-card:hover {
@@ -562,17 +563,21 @@
             font-size: 0.7rem;
         }
 
+        /* FIXED PROJECT STATUS - Now visible and properly positioned */
         .project-status {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 5px 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
             font-weight: 600;
-            z-index: 2;
+            z-index: 10; /* High z-index to ensure visibility */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Added shadow for better visibility */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
         }
-          .project-features {
+
+        .project-features {
             margin-bottom: 15px;
         }
 
@@ -610,19 +615,23 @@
             opacity: 0.3;
         }
 
+        /* Enhanced status badge colors with better contrast */
         .status-live {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .status-development {
-            background: rgba(234, 179, 8, 0.2);
-            color: #ea3d08;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .status-completed {
-            background: rgba(59, 130, 246, 0.2);
-            color: #3b82f6;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         /* Enhanced Awards & Certificates Section */
@@ -1010,6 +1019,14 @@
             .project-image {
                 height: 160px;
             }
+
+            /* Make project status smaller on mobile */
+            .project-status {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+                top: 8px;
+                right: 8px;
+            }
             
             .timeline::before {
                 left: 15px;
@@ -1068,6 +1085,14 @@
                 padding: 10px 20px;
                 font-size: 0.85rem;
             }
+
+            /* Even smaller project status on very small screens */
+            .project-status {
+                font-size: 0.6rem;
+                padding: 3px 6px;
+                top: 6px;
+                right: 6px;
+            }
         }
     </style>
 </head>
@@ -1075,7 +1100,7 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <div class="logo">Dev JB</div>
+        <div class="logo">{ Dev JB }</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -1454,7 +1479,7 @@
                         "The reporting module developed by JB has provided us with invaluable insights into our
                         workforce analytics."
                         <div class="client-info">
-                            <span class="client-name">- HR Department</span>
+                            <span class="client-name">- ASCII Solutions</span>
                         </div>
                     </div>
                 </div>
@@ -1780,8 +1805,28 @@
                         <h4><i class="fas fa-trophy"></i> Academic Achievements</h4>
                         <ul>
                             <li>Graduated with Special Awards in Programming</li>
-                            <li>Dean's Lister (3 Semesters)</li>
-                            <li>Best Thesis Award - Lab Guard Pro System</li>
+                            <li>Best Programmer of the Year 2024</li>
+                            <li>Rank 3 in Research Competition</li>
+                            <li>Best Embedded System Award - Lab Guard Pro System</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="timeline-date">2024</div>
+                    <h3 class="timeline-title">Computer System Servicing II</h3>
+                    <p class="timeline-desc">TESDA Certification Program</p>
+                    <div class="timeline-honors">
+                        <h4><i class="fas fa-trophy"></i> Skills Acquired</h4>
+                        <ul>
+                            <li>Computer Hardware Troubleshooting</li>
+                            <li>Network Administration</li>
+                            <li>Cable Management</li>
+                            <li>Computer System Servicing</li>
                         </ul>
                     </div>
                 </div>
@@ -1807,25 +1852,7 @@
                 </div>
             </div>
             
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="timeline-date">2023</div>
-                    <h3 class="timeline-title">Advanced Web Development Bootcamp</h3>
-                    <p class="timeline-desc">Online Certification Program</p>
-                    <div class="timeline-honors">
-                        <h4><i class="fas fa-trophy"></i> Skills Acquired</h4>
-                        <ul>
-                            <li>Advanced JavaScript and React.js</li>
-                            <li>API Development with Laravel Lumen</li>
-                            <li>Database Optimization Techniques</li>
-                            <li>Microservices Architecture</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </section>
 
